@@ -1,0 +1,32 @@
+{% layout 'layout.liquid'%}
+{% block content %}
+  <div>
+    <h2 class="display-6">All Animes</h2>
+    <div class="row">
+      {% for anime in animes %}
+        <div class="card" style="width: 18rem;">
+          <h5 class="card-header">{{ anime.title }}
+          </h5>
+          <div class="card-body">
+            <h5 class="card-title">
+              Ready?:
+              {{ anime.ready }}
+            </h5>
+            <p class="card-text">
+              Body:
+              {{ anime.body }}
+            </p>
+            <p class="card-text">
+              Amount:
+              {{ anime.amount }}
+            </p>
+            <a href="/animes/{{ anime.id }}" class="btn btn-info">
+              View
+              {{ anime.title }}
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}}

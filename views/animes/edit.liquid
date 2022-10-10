@@ -1,0 +1,22 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+  <div class="container-sm">
+    <form action="/animes" method="POST">
+      <fieldset>
+        <legend>Create New Anime</legend>
+        <label class="form-label">Title:
+        </label>
+        <input type="text" name="title" placeholder="{{ anime.title }}" value="{{ anime.title }}" class="form-control">
+        <label class="form-label">Body:</label>
+        <input type="text" name="body" placeholder="{{ anime.body }}" value="{{ anime.body }}" class="form-control">
+        <label class="form-label">Amount:</label>
+        <input type="number" name="amount" value="{{ anime.amount }}" class="form-control">
+        <label class="form-label">Ready:</label>
+        <input type="checkbox" name="ready" class="form-check-input" {% if anime.ready %}
+          checked
+          {% endif %}>
+      </fieldset>
+      <input type="submit" value="Edit Anime" class="btn btn-success">
+    </form>
+  </div>
+{% endblock %}}
