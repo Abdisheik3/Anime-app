@@ -48,3 +48,11 @@ ENTITY RELATIONSHIP DIAGRAM
 
 
 ![entity relationship diagram](https://user-images.githubusercontent.com/108881102/194869403-7d9a9af7-b28e-4cd3-9faa-0a0b9b68157d.png)
+
+
+API link
+
+https://anime-facts-rest-api.herokuapp.com/api/v1
+
+API route
+localhost:300/anime
