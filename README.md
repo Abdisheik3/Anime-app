@@ -3,7 +3,7 @@
 
 ### Overview:
 
-    An app that allows the users to create a character for an anime. With this app you can view list of animes and the characters in them.
+    An app that allows the users to create a character for an anime. With this app you can view list of animes and the characters in them. If you don't like a character from an anime, you can either delete the whole character or update them. With created or existing characters you can add them to your anime.
     
     Database =
     character: Goku, Luffy, Ichigo, Naruto, Gon, Eren, Tanjiro, Saitima, Deku, Itadori
