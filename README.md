@@ -37,7 +37,8 @@ ANIME-APP
  WIREFRAMES
  
  
-    ![wireframe pt2](https://user-images.githubusercontent.com/108881102/194869219-29273943-99a8-4005-979c-9b37b4c505a4.png)
+    
+![wireframe pt2](https://user-images.githubusercontent.com/108881102/194869602-af2e70be-72b1-48f7-a5a6-14c289425e8b.png)
 
 
 
