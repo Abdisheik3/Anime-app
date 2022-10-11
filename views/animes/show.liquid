@@ -4,24 +4,10 @@
     <article>
       <h2>
         {{ anime.name }}
-        -
-        {%- comment -%}
-          {% if anime.ready %}
-          Ready
-          {% else %}
-          Not Ready
-        {%- endcomment -%}
-        {%- comment -%}
-          {%endif%}
-        {%- endcomment -%}
       </h2>
-      {%- comment -%}
-        <h3>Amount:
-        {{ anime.amount }}
-        </h3>
-      {%- endcomment -%}
+
       <h6>Character:
-        {{ anime.body }}
+        {{ anime.character }}
       </h6>
       {% if anime.owner == userId %}
         <div class="btn-group">
@@ -34,4 +20,4 @@
       {% endif %}
     </article>
   </div>
-{% endblock %}}}}}}
+{% endblock %}}}}}}}}}

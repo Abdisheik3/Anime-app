@@ -40,7 +40,7 @@ router.get('/mine', (req, res) => {
     // destructure user info from req.session
     const { username, userId, loggedIn } = req.session
 	Anime.find({ owner: userId })
-		.then(animees => {
+		.then(animes => {
 			res.render('animes/index', { animes, username, loggedIn })
 		})
 		.catch(error => {
@@ -73,7 +73,7 @@ router.post('/', (req, res) => {
 router.get('/:id/edit', (req, res) => {
 	// we need to get the id
 	const animeId = req.params.id
-	Anime.findById(AnimeId)
+	Anime.findById(animeId)
 		.then(anime => {
 			res.render('animes/edit', { anime })
 		})

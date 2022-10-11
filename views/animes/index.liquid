@@ -14,10 +14,12 @@
               {{ anime.ready }}
               </h5>
             {%- endcomment -%}
-            <p class="card-text">
+            {%- comment -%}
+              <p class="card-text">
               characters:
-              {{ anime.body }}
-            </p>
+              {{ anime.character }}
+              </p>
+            {%- endcomment -%}
             <p class="card-text">
               {%- comment -%}
                 Amount:
@@ -26,11 +28,11 @@
             </p>
             <a href="/animes/{{ anime.id }}" class="btn btn-info">
               View
-              {{ anime.title }}
+              {{ anime.name }}
             </a>
           </div>
         </div>
       {% endfor %}
     </div>
   </div>
-{% endblock %}}}}}}}}}}}}
+{% endblock %}}}}}}}}}}}}}}}}}
