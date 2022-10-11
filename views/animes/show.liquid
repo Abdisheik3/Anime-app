@@ -3,18 +3,24 @@
   <div class="container-md">
     <article>
       <h2>
-        {{ anime.title }}
+        {{ anime.name }}
         -
-        {% if anime.ready %}
+        {%- comment -%}
+          {% if anime.ready %}
           Ready
-        {% else %}
+          {% else %}
           Not Ready
-        {%endif%}
+        {%- endcomment -%}
+        {%- comment -%}
+          {%endif%}
+        {%- endcomment -%}
       </h2>
-      <h3>Amount:
+      {%- comment -%}
+        <h3>Amount:
         {{ anime.amount }}
-      </h3>
-      <h6>Body:
+        </h3>
+      {%- endcomment -%}
+      <h6>Character:
         {{ anime.body }}
       </h6>
       {% if anime.owner == userId %}
@@ -28,4 +34,4 @@
       {% endif %}
     </article>
   </div>
-{% endblock %}}
+{% endblock %}}}}}}

@@ -9,14 +9,9 @@ const { Schema, model } = mongoose
 
 const animeSchema = new Schema(
 	{
-		title: { type: String, required: true },
-		body: { type: String, required: true },
-        amount: { type: Number, required: true },
-		ready: { type: Boolean, required: true },
-		owner: {
-			type: Schema.Types.ObjectID,
-			ref: 'User',
-		}
+		name: { type: String, required: true },
+		characters: { type: String, required: true },
+		owner: { type: Schema.Types.ObjectID, ref: 'User', }
 	},
 	{ timestamps: true }
 )
