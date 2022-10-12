@@ -29,17 +29,20 @@
 
       <form action="/characters" method="POST">
         <fieldset>
-          <legend>Create New Character</legend>
+          <legend>Add Character</legend>
           <label class="form-label">Name:
           </label>
           <input type="text" name="name" placeholder="enter character name" class="form-control">
           <label class="form-label">Desc:</label>
           <input type="text" name="body" placeholder="enter character description" class="form-control">
+          <label class="form-label">Anime:</label>
+          <br>
+          <input value="{{anime.id}}">
         </fieldset>
-        <input type="submit" value="Create New Character" class="btn btn-success">
+        <input type="submit" value="Add Character" class="btn btn-success">
       </form>
 
 
     </article>
   </div>
-{% endblock %}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+{% endblock %}}}}}}}}}}}}}}}}
