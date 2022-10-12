@@ -17,7 +17,7 @@ db.on('open', () => {
         { name: "My Hero Academia", characters: "Deku" }, 
         { name: "Jujutsu Kaisen", characters: "Itadori" }, 
     ]
-    Anime.deleteMany({ owner: null })
+    Anime.deleteMany({})
         .then(deletedAnimes => {
             console.log('this is what .deleteMany returns', deletedAnimes)
             Anime.create(startAnimes)

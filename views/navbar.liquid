@@ -12,9 +12,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         {% if loggedIn %}
-          <a href="/animes" class="nav-link text-light">View All</a>
+          <a href="/animes" class="nav-link text-light">View All Animes</a>
           <a href="/animes/new" class="nav-link text-light">New</a>
           <a href="/animes/mine" class="nav-link text-light">My Animes</a>
+          <a href="/characters" class="nav-link text-light">View All Characters</a>
           <a href="/auth/logout" class="nav-link text-light">Log Out</a>
         {% else %}
           <a href="/auth/signup" class="nav-link text-light">Sign Up</a>
@@ -23,4 +24,4 @@
       </div>
     </div>
   </nav>
-{% endblock %}}}}
+{% endblock %}}}
