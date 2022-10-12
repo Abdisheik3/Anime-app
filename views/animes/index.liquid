@@ -8,23 +8,8 @@
           <h5 class="card-header">{{ anime.name }}
           </h5>
           <div class="card-body">
-            {%- comment -%}
-              <h5 class="card-title">
-              Ready?:
-              {{ anime.ready }}
-              </h5>
-            {%- endcomment -%}
-            {%- comment -%}
-              <p class="card-text">
-              characters:
-              {{ anime.character }}
-              </p>
-            {%- endcomment -%}
-            <p class="card-text">
-              {%- comment -%}
-                Amount:
-                {{ anime.amount }}
-              {%- endcomment -%}
+            <img class="card-text" >
+          
             </p>
             <a href="/animes/{{ anime.id }}" class="btn btn-info">
               View
@@ -35,4 +20,4 @@
       {% endfor %}
     </div>
   </div>
-{% endblock %}}}}}}}}}}}}}}}}}
+{% endblock %}}}}}}}}}}}}}}}}}}}}}}

@@ -10,7 +10,7 @@ const characterSchema = new Schema(
     {
         name: { type: String, required: true},
         desc: { type: String},
-        owner: { type: Schema.Types.ObjectID, ref: 'animeId', }
+        anime: { type: Schema.Types.ObjectID, ref: 'Anime', }
     },
     { timestamps: true}
     )

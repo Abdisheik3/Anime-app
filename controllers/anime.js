@@ -87,7 +87,7 @@ router.put('/:id', (req, res) => {
 	const animeId = req.params.id
 	req.body.ready = req.body.ready === 'on' ? true : false
 
-	Anime.findByIdAndUpdate(AnimeId, req.body, { new: true })
+	Anime.findByIdAndUpdate(animeId, req.body, { new: true })
 		.then(Anime => {
 			res.redirect(`/Animes/${anime.id}`)
 		})

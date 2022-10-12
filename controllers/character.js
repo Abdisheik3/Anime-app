@@ -21,7 +21,6 @@ router.get('/', (req, res) => {
 		.then(characters => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
-			
 			res.render('characters/index', { characters, username, loggedIn })
 		})
 		.catch(error => {

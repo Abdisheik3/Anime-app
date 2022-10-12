@@ -2,13 +2,16 @@
 {% block content %}
   <div class="container-md">
     <article>
-      <h2>
-        {{ anime.name }}
-      </h2>
+      <div class="card" style="width: 18rem;">
+        <h2>
+          {{ anime.name}}
+        </h2>
+        <img src="{{ 'https://asset.vg247.com/goku-dragon-ball.jpg/BROK/thumbnail/1600x900/format/jpg/quality/80/goku-dragon-ball.jpg' | file_img_url: '2048x2048' }}"/>
+        <h6>character:
+          {{ anime.characters }}
+        </h6>
 
-      <h6>Character:
-        {{ anime.body }}
-      </h6>
+      </div>
       {% if anime.owner == userId %}
         <div class="btn-group">
 
@@ -16,8 +19,27 @@
           <form action="/animes/{{ anime.id }}?_method=DELETE" method="POST">
             <input type="submit" value="Delete" class="btn btn-danger">
           </form>
+
         </div>
+
       {% endif %}
+      <br>
+      <br>
+      <br>
+
+      <form action="/characters" method="POST">
+        <fieldset>
+          <legend>Create New Character</legend>
+          <label class="form-label">Name:
+          </label>
+          <input type="text" name="name" placeholder="enter character name" class="form-control">
+          <label class="form-label">Desc:</label>
+          <input type="text" name="body" placeholder="enter character description" class="form-control">
+        </fieldset>
+        <input type="submit" value="Create New Character" class="btn btn-success">
+      </form>
+
+
     </article>
   </div>
-{% endblock %}}}}}}}}}}
+{% endblock %}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
