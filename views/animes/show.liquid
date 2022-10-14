@@ -8,7 +8,7 @@
         </h2>
         <img src="{{ 'https://asset.vg247.com/goku-dragon-ball.jpg/BROK/thumbnail/1600x900/format/jpg/quality/80/goku-dragon-ball.jpg' | file_img_url: '2048x2048' }}"/>
         <h6>character:
-          {{ anime.characters }}
+          {{ anime.characters}}
         </h6>
 
       </div>
@@ -34,10 +34,8 @@
           </label>
           <input type="text" name="name" placeholder="enter character name" class="form-control">
           <label class="form-label">Desc:</label>
-          <input type="text" name="body" placeholder="enter character description" class="form-control">
-          <label class="form-label">Anime:</label>
-          <br>
-          <input value="{{anime.id}}">
+          <input type="text" name="desc" placeholder="enter character description" class="form-control">
+          <input name="anime" type="text" hidden class="form-control" value="{{anime.id}}">
         </fieldset>
         <input type="submit" value="Add Character" class="btn btn-success">
       </form>
@@ -45,4 +43,4 @@
 
     </article>
   </div>
-{% endblock %}}}}}}}}}}}}}}}}
+{% endblock %}}}}}}}}}}}}}}}}}}}}}}}

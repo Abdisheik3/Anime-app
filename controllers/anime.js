@@ -1,7 +1,7 @@
 // Import Dependencies
 const express = require('express')
 const Anime = require('../models/anime')
-
+const Character = require('../models/character')
 // Create router
 const router = express.Router()
 
@@ -23,11 +23,13 @@ router.use((req, res, next) => {
 
 // index ALL
 router.get('/', (req, res) => {
+	const username = req.session.username
+    const loggedIn = req.session.loggedIn
 	Anime.find({})
 		.then(animes => {
-			const username = req.session.username
-			const loggedIn = req.session.loggedIn
 			
+		
+
 			res.render('animes/index', { animes, username, loggedIn })
 		})
 		.catch(error => {
@@ -100,7 +102,9 @@ router.put('/:id', (req, res) => {
 router.get('/:id', (req, res) => {
 	const animeId = req.params.id
 	Anime.findById(animeId)
+		.populate("characters")
 		.then(anime => {
+			console.log('this is the anime in show page', anime)
             const {username, loggedIn, userId} = req.session
 			res.render('animes/show', { anime, username, loggedIn, userId })
 		})

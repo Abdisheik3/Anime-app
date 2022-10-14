@@ -2,6 +2,7 @@
 {% block content %}
   <div>
     <h2 class="display-6">All Animes</h2>
+    <img src="{{ 'https://cdn.myanimelist.net/s/common/uploaded_files/1444014275-106dee95104209bb9436d6df2b6d5145.jpeg' | file_img_url: '2048x2048' }}"/>
     <div class="row">
       {% for anime in animes %}
         <div class="card" style="width: 18rem;">
@@ -9,7 +10,6 @@
           </h5>
           <div class="card-body">
             <img class="card-text" >
-          
             </p>
             <a href="/animes/{{ anime.id }}" class="btn btn-info">
               View
@@ -20,4 +20,4 @@
       {% endfor %}
     </div>
   </div>
-{% endblock %}}}}}}}}}}}}}}}}}}}}}}
+{% endblock %}

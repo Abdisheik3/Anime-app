@@ -1,3 +1,4 @@
+
 const mongoose = require('./connection')
 const Anime = require('./anime')
 
@@ -6,16 +7,16 @@ const db = mongoose.connection
 
 db.on('open', () => {
     const startAnimes = [
-        { name: "Dragon Ball Z", characters: "Goku" },
-        { name: "One Piece", characters: "Luffy" },  
-        { name: "Naruto", characters: "Naruto" }, 
-        { name: "Bleach", characters: "Ichigo" },
-        { name: "HunterxHunter", characters: "Gon" }, 
-        { name: "Attack on Titan", characters: "Naruto" }, 
-        { name: "Demon Slayer", characters: "Tanjiro" }, 
-        { name: "One Punch Man", characters: "Saitima" }, 
-        { name: "My Hero Academia", characters: "Deku" }, 
-        { name: "Jujutsu Kaisen", characters: "Itadori" }, 
+        { name: "Dragon Ball Z"},
+        { name: "One Piece"},  
+        { name: "Naruto"}, 
+        { name: "Bleach"},
+        { name: "HunterxHunter"}, 
+        { name: "Attack on Titan"}, 
+        { name: "Demon Slayer"}, 
+        { name: "One Punch Man"}, 
+        { name: "My Hero Academia"}, 
+        { name: "Jujutsu Kaisen"}
     ]
     Anime.deleteMany({})
         .then(deletedAnimes => {

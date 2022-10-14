@@ -1,6 +1,7 @@
 // Import Dependencies
 const express = require('express')
 const Character = require('../models/character')
+const Anime = require('../models/anime')
 
 // Create router
 const router = express.Router()
@@ -21,6 +22,7 @@ router.get('/', (req, res) => {
 		.then(characters => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
+			console.log('hfhfhfhf', characters)
 			res.render('characters/index', { characters, username, loggedIn })
 		})
 		.catch(error => {
@@ -52,15 +54,31 @@ router.post('/', (req, res) => {
 	// req.body.ready = req.body.ready === 'on' ? true : false
 
 	req.body.owner = req.session.userId
+
+	const animeId = req.body.anime 
+	
+	// character gets created in the db then we find anime, then we push to the char array in anime
 	Character.create(req.body)
 		.then(character => {
-			// console.log('this was returned from create', anime)
-			res.redirect('/characters')
+			Anime.findById(animeId)
+				.then(anime => {
+					
+					anime.characters.push(character.id)
+					return anime.save()
+				})
+				.then(anime => {
+					console.log('anime', anime)
+					res.redirect('/characters')
+				})
+				.catch(error => {
+					res.redirect(`/error?error=${error}`)
+				})
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
 		})
 })
+
 
 // edit route -> GET that takes us to the edit form view
 router.get('/:id/edit', (req, res) => {
