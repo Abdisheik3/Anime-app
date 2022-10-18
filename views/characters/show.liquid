@@ -1,14 +1,16 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-  <div class="card" style="width: 15rem;">
-    <article>
-      <h2>
-        {{ character.name }}
-      </h2>
 
-      <h6>description:
-        {{ character.desc }}
-      </h6>
+  <article>
+    <div class="card" style="width: 18rem;">
+      <h5 class="card-header">{{ character.name }}
+      </h5>
+      <div class="card-body">
+        <img class="card-text">
+        <h3>
+          {{character.desc}}
+        </h3>
+      </p>
       {%- comment -%}
         <div class="card" style="width: 18rem;">
         <h5 class="card-header">{{ character.name }}
@@ -29,4 +31,4 @@
       {% endif %}
     </article>
   </div>
-{% endblock %}}}}}}}}}}}}}}}}}}}}}}}}
+{% endblock %}}}}}}}}}}}}}}}}}}}}}}}}}}}}
