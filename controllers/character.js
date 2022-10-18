@@ -94,17 +94,26 @@ router.get('/:id/edit', (req, res) => {
 })
 
 // update route
-router.put('/:id', (req, res) => {
-	const characterId = req.params.id
-	req.body.ready = req.body.ready === 'on' ? true : false
+router.put("/:id", (req, res) => {
+    console.log("req.body initially", req.body)
+    const id = req.params.id
 
-	Character.findByIdAndUpdate(characterId, req.body, { new: true })
-		.then(Anime => {
-			res.redirect(`/Animes/${character.id}`)
-		})
-		.catch((error) => {
-			res.redirect(`/error?error=${error}`)
-		})
+    
+    
+    Character.findById(id)
+        .then(character => {
+            if (character.owner == req.session.userId) {
+                // must return the results of this query
+                return character.updateOne(req.body)
+            } else {
+                res.sendStatus(401)
+            }
+        })
+        .then(() => {
+            // console.log('returned from update promise', data)
+            res.redirect(`/characters/${id}`)
+        })
+        .catch(err => res.redirect(`/error?error=${err}`))
 })
 
 // show route

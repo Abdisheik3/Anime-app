@@ -1,17 +1,16 @@
 {% layout 'layout.liquid' %}
 {% block content %}
   <div class="container-sm">
-    <form action="/characters" method="POST">
+    <form action="/characters/{{character.id}}?_method=PUT" method="POST">
       <fieldset>
         <legend>Create New Character</legend>
         <label class="form-label">Name:
         </label>
         <input type="text" name="name" placeholder="{{ character.name }}" value="{{ character.name }}" class="form-control">
         <label class="form-label">Desc:</label>
-        <input type="text" name="body" placeholder="{{ character.body }}" value="{{ character.body }}" class="form-control">
-          {% endif %}>
+        <input type="text" name="desc" placeholder="{{ character.desc }}" value="{{ character.desc }}" class="form-control">
       </fieldset>
-      <input type="submit" value="Edit Anime" class="btn btn-success">
+      <input type="submit" value="Edit Character" class="btn btn-success">
     </form>
   </div>
-{% endblock %}}
+{% endblock %}}}}}}

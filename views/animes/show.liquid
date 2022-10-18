@@ -7,9 +7,11 @@
           {{ anime.name}}
         </h2>
         <img src="{{ 'https://asset.vg247.com/goku-dragon-ball.jpg/BROK/thumbnail/1600x900/format/jpg/quality/80/goku-dragon-ball.jpg' | file_img_url: '2048x2048' }}"/>
-        <h6>character:
+        {%- comment -%}
+          <h6>character:
           {{ anime.characters}}
-        </h6>
+          </h6>
+        {%- endcomment -%}
 
       </div>
       {% if anime.owner == userId %}
@@ -26,6 +28,18 @@
       <br>
       <br>
       <br>
+      {% if anime.characters.length > 0%}
+        <div class="container-sm justify-content-center">
+          <div class="col-md-8 col-lg-3">
+            {% for character in anime.characters %}
+              {% render '../character.liquid', character: character, userId: userId, anime: anime %}
+            {% endfor %}
+          </div>
+        </div>
+      {% else %}
+        <small>no characters yet...</small>
+      {% endif %}
+
 
       <form action="/characters" method="POST">
         <fieldset>
@@ -37,20 +51,24 @@
           <input type="text" name="desc" placeholder="enter character description" class="form-control">
           <input name="anime" type="text" hidden class="form-control" value="{{anime.id}}">
         </fieldset>
+        <br>
         <input type="submit" value="Add Character" class="btn btn-success">
       </form>
-      {% if anime.characters.length > 0%}
+      <br>
+      {%- comment -%}
+        {% if anime.characters.length > 0%}
         <div class="container-sm justify-content-center">
-          <div class="col-md-8 col-lg-6">
-            {% for character in anime.characters %}
-              {% render '../character.liquid', character: character, userId: userId, anime: anime %}
-            {% endfor %}
-          </div>
+        <div class="col-md-8 col-lg-6">
+        {% for character in anime.characters %}
+        {% render '../character.liquid', character: character, userId: userId, anime: anime %}
+        {% endfor %}
         </div>
-      {% else %}
+        </div>
+        {% else %}
         <small>no characters yet...</small>
-      {% endif %}
+        {% endif %}
+      {%- endcomment -%}
 
     </article>
   </div>
-{% endblock %}}}}}}}}}}}}}}}}}}}}}}}}
+{% endblock %}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}

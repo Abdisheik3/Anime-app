@@ -27,9 +27,6 @@ router.get('/', (req, res) => {
     const loggedIn = req.session.loggedIn
 	Anime.find({})
 		.then(animes => {
-			
-		
-
 			res.render('animes/index', { animes, username, loggedIn })
 		})
 		.catch(error => {
@@ -85,17 +82,26 @@ router.get('/:id/edit', (req, res) => {
 })
 
 // update route
-router.put('/:id', (req, res) => {
-	const animeId = req.params.id
-	req.body.ready = req.body.ready === 'on' ? true : false
+router.put("/:id", (req, res) => {
+    console.log("req.body initially", req.body)
+    const id = req.params.id
 
-	Anime.findByIdAndUpdate(animeId, req.body, { new: true })
-		.then(Anime => {
-			res.redirect(`/Animes/${anime.id}`)
-		})
-		.catch((error) => {
-			res.redirect(`/error?error=${error}`)
-		})
+    
+    
+    Anime.findById(id)
+        .then(anime => {
+            if (anime.owner == req.session.userId) {
+                // must return the results of this query
+                return anime.updateOne(req.body)
+            } else {
+                res.sendStatus(401)
+            }
+        })
+        .then(() => {
+            // console.log('returned from update promise', data)
+            res.redirect(`/animes/${id}`)
+        })
+        .catch(err => res.redirect(`/error?error=${err}`))
 })
 
 // show route

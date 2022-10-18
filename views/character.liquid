@@ -4,15 +4,17 @@
       <p>{{ character.name }}
       </p>
       <div class="d-flex justify-content-between">
-        <small>owner:
-          {{ character.owner.username }}
+        <small>description:
+          {{ character.desc }}
         </small>
         {% if character.owner == userId %}
-          <form action="/characters/delete/{{anime.id}}/{{anime.id}}?_method=DELETE" method="POST">
+          {%- comment -%}
+            <form action="/characters/delete/{{anime.id}}/{{anime.id}}?_method=DELETE" method="POST">
             <input class="btn btn-danger" type="submit" value="X">
-          </form>
+            </form>
+          {%- endcomment -%}
         {% endif %}
       </div>
     </div>
   </div>
-{% endblock %}}}}
+{% endblock %}}}}}}}}}}
