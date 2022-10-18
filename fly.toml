@@ -1,6 +1,6 @@
-# fly.toml file generated for anime on 2022-10-18T08:28:00-05:00
+# fly.toml file generated for animes on 2022-10-18T08:56:03-05:00
 
-app = "anime"
+app = "animes"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
@@ -10,6 +10,7 @@ processes = []
 
 [env]
   PORT = "8080"
+  SECRET="iwillbench405andbe200poundsanfhavemoney"
   DEPLOYED_URL="mongodb+srv://Abdis:Abdisheik3@cluster0.a12szke.mongodb.net/anime?retryWrites=true&w=majority"
    CLIENT_ORIGIN = "this will be the full stack's deployed application"
 
