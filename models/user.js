@@ -2,7 +2,7 @@
 const { Schema, model } = require('./connection.js')
 
 // create the schema
-const UserSchema = new Schema(
+const UserSchema = new Schema( // < see how this is capitalized here 
 	{
 		username: { 
 			type: String, 

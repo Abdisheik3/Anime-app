@@ -50,14 +50,14 @@ router.get('/new', (req, res) => {
 })
 
 // create -> POST route that actually calls the db and makes a new document
-router.post('/', (req, res) => {
-	// req.body.ready = req.body.ready === 'on' ? true : false
+router.post('/', (req, res) => {// remove extra white space in this route
+	// req.body.ready = req.body.ready === 'on' ? true : false // remove this
 
 	req.body.owner = req.session.userId
 
 	const animeId = req.body.anime 
 	
-	// character gets created in the db then we find anime, then we push to the char array in anime
+	// character gets created in the db then we find anime, then we push to the char array in anime // NICE comment!
 	Character.create(req.body)
 		.then(character => {
 			Anime.findById(animeId)
@@ -97,7 +97,7 @@ router.get('/:id/edit', (req, res) => {
 router.put("/:id", (req, res) => {
     console.log("req.body initially", req.body)
     const id = req.params.id
-
+// remove extra white space
     
     
     Character.findById(id)

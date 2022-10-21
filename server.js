@@ -24,7 +24,7 @@ middleware(app)
 ////////////////////
 
 app.use('/auth', UserRouter)
-app.use('/animes', AnimeRouter)
+app.use('/animes', AnimeRouter) // consider renaming since it is user facing and not a word ( anime is singular and plural)
 app.use('/characters', CharacterRouter)
 
 app.get('/', (req, res) => {

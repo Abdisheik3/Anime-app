@@ -1,7 +1,7 @@
 // Import Dependencies
 const express = require('express')
 const Anime = require('../models/anime')
-const Character = require('../models/character')
+const Character = require('../models/character') // unused import
 // Create router
 const router = express.Router()
 
@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
 	const username = req.session.username
     const loggedIn = req.session.loggedIn
 	Anime.find({})
-		.then(animes => {
+		.then(animes => { // animes is not a word, anime is both plural and singular maybe do allAnime ? 
 			res.render('animes/index', { animes, username, loggedIn })
 		})
 		.catch(error => {
@@ -39,7 +39,7 @@ router.get('/mine', (req, res) => {
     // destructure user info from req.session
     const { username, userId, loggedIn } = req.session
 	Anime.find({ owner: userId })
-		.then(animes => {
+		.then(animes => { // see 29 - do myAnime here
 			res.render('animes/index', { animes, username, loggedIn })
 		})
 		.catch(error => {
@@ -61,7 +61,7 @@ router.post('/', (req, res) => {
 	Anime.create(req.body)
 		.then(anime => {
 			// console.log('this was returned from create', anime)
-			res.redirect('/animes')
+			res.redirect('/animes') // consider going to the new specific anime page instead
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
@@ -85,7 +85,7 @@ router.get('/:id/edit', (req, res) => {
 router.put("/:id", (req, res) => {
     console.log("req.body initially", req.body)
     const id = req.params.id
-
+// remove this white space, it';s inconsistent with the rest of your app
     
     
     Anime.findById(id)
@@ -108,7 +108,7 @@ router.put("/:id", (req, res) => {
 router.get('/:id', (req, res) => {
 	const animeId = req.params.id
 	Anime.findById(animeId)
-		.populate("characters")
+		.populate("characters")// good use of populate
 		.then(anime => {
 			console.log('this is the anime in show page', anime)
             const {username, loggedIn, userId} = req.session
