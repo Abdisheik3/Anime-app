@@ -5,7 +5,7 @@
       <fieldset>
         <legend>Create New Character</legend>
         <label class="form-label">Name:
-        </label>
+        </label>{%- comment -%} inconsistent format, bring close tag back to end of line 7 {%- endcomment -%}
         <input type="text" name="name" placeholder="enter character name" class="form-control">
         <label class="form-label">Desc:</label>
         <input type="text" name="desc" placeholder="enter character description" class="form-control">
@@ -13,4 +13,4 @@
       <input type="submit" value="Create New Character" class="btn btn-success">
     </form>
   </div>
-{% endblock %}}}
+{% endblock %}}} {%- comment -%} turn on auto save {%- endcomment -%}
